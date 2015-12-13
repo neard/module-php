@@ -36,6 +36,10 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 * [5.6.14-r2](https://github.com/crazy-max/neard-bin-php/releases/download/r2/neard-php-5.6.14-r2.zip)
 * [5.6.16-r2](https://github.com/crazy-max/neard-bin-php/releases/download/r2/neard-php-5.6.16-r2.zip)
 
+### 7.0
+
+* [7.0.0-r3](https://github.com/crazy-max/neard-bin-php/releases/download/r3/neard-php-7.0.0-r3.zip)
+
 ## Installation
 
 * Download and install [Neard](https://github.com/crazy-max/neard).
