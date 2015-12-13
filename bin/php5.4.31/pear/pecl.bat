@@ -21,30 +21,16 @@ REM  Last updated 02/08/2004 ($Id$ is not replaced if the file is binary)
 REM change this lines to match the paths of your system
 REM -------------------
 
-REM -------------------
-REM START NEARD EDIT
-REM -------------------
-
-REM Get parent path (Neard)
-FOR %%i IN ("%~dp0..") DO SET "NEARD_PHP_PATH=%%~fi"
-
-REM Force system tmp dir (Neard)
-SET "TMP=%NEARD_PHP_PATH%\pear\tmp"
 
 REM Test to see if this is a raw pear.bat (uninstalled version)
 SET TMPTMPTMPTMPT=@includ
 SET PMTPMTPMT=%TMPTMPTMPTMPT%e_path@
-FOR %%x IN ("%NEARD_PHP_PATH%\pear\pear") DO (if %%x=="%PMTPMTPMT%" GOTO :NOTINSTALLED)
+FOR %%x IN ("~NEARD_WIN_PATH~\bin\php\php5.4.31\pear\pear") DO (if %%x=="%PMTPMTPMT%" GOTO :NOTINSTALLED)
 
-REM Set PEAR global ENV (Neard)
-SET "PHP_PEAR_INSTALL_DIR=%NEARD_PHP_PATH%\pear\pear"
-SET "PHP_PEAR_BIN_DIR=%NEARD_PHP_PATH%\pear"
-SET "PHP_PEAR_PHP_BIN=%NEARD_PHP_PATH%\php.exe"
-
-REM -------------------
-REM END NEARD EDIT
-REM -------------------
-
+REM Check PEAR global ENV, set them if they do not exist
+IF "%PHP_PEAR_INSTALL_DIR%"=="" SET "PHP_PEAR_INSTALL_DIR=~NEARD_WIN_PATH~\bin\php\php5.4.31\pear\pear"
+IF "%PHP_PEAR_BIN_DIR%"=="" SET "PHP_PEAR_BIN_DIR=~NEARD_WIN_PATH~\bin\php\php5.4.31\pear"
+IF "%PHP_PEAR_PHP_BIN%"=="" SET "PHP_PEAR_PHP_BIN=~NEARD_WIN_PATH~\bin\php\php5.4.31\php.exe"
 GOTO :INSTALLED
 
 :NOTINSTALLED

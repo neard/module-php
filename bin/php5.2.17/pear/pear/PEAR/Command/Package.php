@@ -12,7 +12,7 @@
  * @author     Greg Beaver <cellog@php.net>
  * @copyright  1997-2009 The Authors
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
- * @version    CVS: $Id$
+ * @version    CVS: $Id: Package.php 287559 2009-08-21 22:33:10Z dufuz $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 0.1
  */
@@ -32,7 +32,7 @@ require_once 'PEAR/Command/Common.php';
  * @author     Greg Beaver <cellog@php.net>
  * @copyright  1997-2009 The Authors
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
- * @version    Release: 1.9.5
+ * @version    Release: 1.9.0
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 0.1
  */
@@ -160,7 +160,7 @@ of a specific release.
  Sets a SVN tag on all files in a package.  Use this command after you have
  packaged a distribution tarball with the "package" command to tag what
  revisions of what files were in that release.  If need to fix something
- after running svntag once, but before the tarball is released to the public,
+ after running cvstag once, but before the tarball is released to the public,
  use the "slide" option to move the release tag.
 
  to include files (such as a second package.xml, or tests not included in the
@@ -314,7 +314,7 @@ used for automated conversion or learning the format.
         return $a;
     }
 
-    function &getPackageFile($config, $debug = false)
+    function &getPackageFile($config, $debug = false, $tmpdir = null)
     {
         if (!class_exists('PEAR_Common')) {
             require_once 'PEAR/Common.php';
@@ -322,7 +322,7 @@ used for automated conversion or learning the format.
         if (!class_exists('PEAR_PackageFile')) {
             require_once 'PEAR/PackageFile.php';
         }
-        $a = &new PEAR_PackageFile($config, $debug);
+        $a = &new PEAR_PackageFile($config, $debug, $tmpdir);
         $common = new PEAR_Common;
         $common->ui = $this->ui;
         $a->setLogger($common);
@@ -421,7 +421,7 @@ used for automated conversion or learning the format.
 
         $packageFile = realpath($params[0]);
         $dir = dirname($packageFile);
-        $dir = substr($dir, strrpos($dir, DIRECTORY_SEPARATOR) + 1);
+        $dir = substr($dir, strrpos($dir, '/') + 1);
         $obj  = &$this->getPackageFile($this->config, $this->_debug);
         $info = $obj->fromAnyFile($packageFile, PEAR_VALIDATE_NORMAL);
         if (PEAR::isError($info)) {
@@ -467,7 +467,7 @@ used for automated conversion or learning the format.
                 'name' => 'modified',
                 'type' => 'yesno',
                 'default' => 'no',
-                'prompt' => 'You have files in your SVN checkout (' . $path['from']  . ') that have been modified but not committed, do you still want to tag ' . $version . '?',
+                'prompt' => 'You have files in your SVN checkout (' . $path['from']  . ') that have been modified but not commited, do you still want to tag ' . $version . '?',
             ));
             $answers = $this->ui->confirmDialog($params);
 
@@ -481,7 +481,7 @@ used for automated conversion or learning the format.
         }
 
         // Check if tag already exists
-        $releaseTag = $path['local']['base'] . 'tags' . DIRECTORY_SEPARATOR . $svntag;
+        $releaseTag = $path['local']['base'] . 'tags/' . $svntag;
         $existsCommand = 'svn ls ' . $path['base'] . 'tags/';
 
         $fp = popen($existsCommand, "r");
@@ -491,13 +491,9 @@ used for automated conversion or learning the format.
         }
         pclose($fp);
 
-        if (in_array($svntag . DIRECTORY_SEPARATOR, explode("\n", $out))) {
+        if (in_array($svntag . '/', explode("\n", $out))) {
             $this->ui->outputData($this->output, $command);
             return $this->raiseError('SVN tag ' . $svntag . ' for ' . $package . ' already exists.');
-        } elseif (file_exists($path['local']['base'] . 'tags') === false) {
-            return $this->raiseError('Can not locate the tags directory at ' . $path['local']['base'] . 'tags');
-        } elseif (is_writeable($path['local']['base'] . 'tags') === false) {
-            return $this->raiseError('Can not write to the tag directory at ' . $path['local']['base'] . 'tags');
         } else {
             $makeCommand = 'svn mkdir ' . $releaseTag;
             $this->output .= "+ $makeCommand\n";
@@ -521,18 +517,8 @@ used for automated conversion or learning the format.
         $command .= ' copy --parents ';
 
         $dir   = dirname($packageFile);
-        $dir   = substr($dir, strrpos($dir, DIRECTORY_SEPARATOR) + 1);
+        $dir   = substr($dir, strrpos($dir, '/') + 1);
         $files = array_keys($info->getFilelist());
-        if (!in_array(basename($packageFile), $files)) {
-            $files[] = basename($packageFile);
-        }
-
-        array_shift($params);
-        if (count($params)) {
-            // add in additional files to be tagged (package files and such)
-            $files = array_merge($files, $params);
-        }
-
         $commands = array();
         foreach ($files as $file) {
             if (!file_exists($file)) {
@@ -583,10 +569,10 @@ used for automated conversion or learning the format.
         $path['from'] = substr($url, 0, strrpos($url, '/'));
         $path['base'] = substr($path['from'], 0, strrpos($path['from'], '/') + 1);
 
-        // Figure out the local paths - see http://pear.php.net/bugs/17463
-        $pos = strpos($file, DIRECTORY_SEPARATOR . 'trunk' . DIRECTORY_SEPARATOR);
+        // Figure out the local paths
+        $pos = strpos($file, '/trunk/');
         if ($pos === false) {
-            $pos = strpos($file, DIRECTORY_SEPARATOR . 'branches' . DIRECTORY_SEPARATOR);
+            $pos = strpos($file, '/branches/');
         }
         $path['local']['base'] = substr($file, 0, $pos + 1);
 
@@ -972,9 +958,7 @@ used for automated conversion or learning the format.
         }
 
         $tar = new Archive_Tar($params[0]);
-
-        $tmpdir = $this->config->get('temp_dir');
-        $tmpdir = System::mktemp(' -t "' . $tmpdir . '" -d pearsign');
+        $tmpdir = System::mktemp('-d pearsign');
         if (!$tar->extractList('package2.xml package.xml package.sig', $tmpdir)) {
             return $this->raiseError("failed to extract tar file");
         }

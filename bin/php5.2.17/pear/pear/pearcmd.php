@@ -12,11 +12,11 @@
  * @author     Tomas V.V.Cox <cox@idecnet.com>
  * @copyright  1997-2009 The Authors
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
- * @version    CVS: $Id$
+ * @version    CVS: $Id: pearcmd.php 286487 2009-07-29 05:57:28Z dufuz $
  * @link       http://pear.php.net/package/PEAR
  */
 
-@ob_end_clean();
+ob_end_clean();
 if (!defined('PEAR_RUNTYPE')) {
     // this is defined in peclcmd.php as 'pecl'
     define('PEAR_RUNTYPE', 'pear');
@@ -25,10 +25,8 @@ define('PEAR_IGNORE_BACKTRACE', 1);
 /**
  * @nodep Gtk
  */
-//the space is needed for windows include paths with trailing backslash
-// http://pear.php.net/bugs/bug.php?id=19482
-if ('~NEARD_WIN_PATH~\bin\php\php5.2.17\pear\pear ' != '@'.'include_path'.'@ ') {
-    ini_set('include_path', trim('~NEARD_WIN_PATH~\bin\php\php5.2.17\pear\pear '));
+if ('~NEARD_WIN_PATH~\bin\php\php5.2.17\pear\pear' != '@'.'include_path'.'@') {
+    ini_set('include_path', '~NEARD_WIN_PATH~\bin\php\php5.2.17\pear\pear');
     $raw = false;
 } else {
     // this is a raw, uninstalled pear, either a cvs checkout, or php distro
@@ -45,7 +43,7 @@ ob_implicit_flush(true);
 $_PEAR_PHPDIR = '#$%^&*';
 set_error_handler('error_handler');
 
-$pear_package_version = "1.9.5";
+$pear_package_version = "1.9.0";
 
 require_once 'PEAR.php';
 require_once 'PEAR/Frontend.php';
@@ -320,17 +318,18 @@ if ($fetype == 'Gtk' || $fetype == 'Gtk2') {
 function usage($error = null, $helpsubject = null)
 {
     global $progname, $all_commands;
-    $stdout = fopen('php://stdout', 'w');
+    $stderr = fopen('php://stderr', 'w');
     if (PEAR::isError($error)) {
-        fputs($stdout, $error->getMessage() . "\n");
+        fputs($stderr, $error->getMessage() . "\n");
     } elseif ($error !== null) {
-        fputs($stdout, "$error\n");
+        fputs($stderr, "$error\n");
     }
 
     if ($helpsubject != null) {
         $put = cmdHelp($helpsubject);
     } else {
-        $put = "Commands:\n";
+        $put =
+            "Commands:\n";
         $maxlen = max(array_map("strlen", $all_commands));
         $formatstr = "%-{$maxlen}s  %s\n";
         ksort($all_commands);
@@ -343,12 +342,8 @@ function usage($error = null, $helpsubject = null)
             "Type \"$progname help shortcuts\" to list all command shortcuts.\n".
             "Type \"$progname help <command>\" to get the help for the specified command.";
     }
-    fputs($stdout, "$put\n");
-    fclose($stdout);
-
-    if ($error === null) {
-        exit(0);
-    }
+    fputs($stderr, "$put\n");
+    fclose($stderr);
     exit(1);
 }
 
