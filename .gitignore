@@ -1,15 +1,15 @@
 # Eclipse
-.settings
-.settings/*
-.buildpath
-.project
-.jsdtscope
-*.launch
+/.settings
+/.settings/*
+/.buildpath
+/.project
+/.jsdtscope
+/*.launch
 
 # Ant
-build.properties
-build.xml
+/build.properties
+/build.xml
 
 # Neard
-.dev
-.dev/*
+/.dev
+/.dev/*

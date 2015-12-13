@@ -1,1 +1,0 @@
-pear.symfony.com
