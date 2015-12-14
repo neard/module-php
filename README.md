@@ -22,6 +22,8 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 
 ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/switchVersion-20151214.png)
 
+* If you have the warning icon on your PHP version, **you will have to switch the Apache version first**.
+
 ## Download
 
 ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/star-20151214.png) : Default bundle on Neard.
