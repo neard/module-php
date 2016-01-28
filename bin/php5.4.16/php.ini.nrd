@@ -2013,7 +2013,7 @@ xdebug.var_display_max_data = "32768"
 xdebug.max_nesting_level = "250"
 
 [APC]
-apc.enabled = 1
+apc.enabled = 0
 apc.shm_segments = 1
 apc.shm_size = 64M
 apc.max_file_size = 10M

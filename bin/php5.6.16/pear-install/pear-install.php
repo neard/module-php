@@ -60,13 +60,22 @@ foreach ($filesToScan as $fileToScan) {
         $countChangedFiles++;
         $countChangedOcc += $tmpCountChangedOcc;
         file_put_contents($fileToScan, $fileContent);
+        file_put_contents($fileToScan . '.nrd', $fileContent);
     }
 }
 echo round(Utils::getMicrotime() - $startTime, 3) . 's => ' . $countChangedFiles . ' files and ' . $countChangedOcc . ' occurences changed' . PHP_EOL . PHP_EOL;
 
 // Write neard.conf
-echo 'Writing neard.conf...' . PHP_EOL;
+echo 'Writing neard.conf...' . PHP_EOL . PHP_EOL;
 file_put_contents($pearPath . '/neard.conf', 'pearVersion = "' . $pearVersion . '"');
+
+// Clean
+echo 'Cleaning...' . PHP_EOL;
+Utils::removeFiles($pearPath . '/tmp');
+$emptyFolders = Utils::getEmptyFolders($pearPath);
+foreach ($emptyFolders as $emptyFolder) {
+    file_put_contents($emptyFolder . '/.gitignore', '*' . PHP_EOL . '!.gitignore' . PHP_EOL);
+}
 
 class Utils {
     
@@ -120,6 +129,45 @@ class Utils {
                     if (self::endWith($file, $findFile) || $file == $findFile || empty($findFile)) {
                         $result[] = self::formatUnixPath($startPath . '/' . $file);
                     }
+                }
+            }
+        }
+        
+        closedir($handle);
+        return $result;
+    }
+    
+    public static function removeFiles($path, $startPath = '') {
+        if (empty($startPath)) {
+            $startPath = $path;
+        }
+        $files = glob($path . '/*');
+        foreach ($files as $file) {
+            is_dir($file) ? self::removeFiles($file, $startPath) : unlink($file);
+        }
+        if ($path != $startPath) {
+            rmdir($path);
+        }
+    }
+    
+    public static function getEmptyFolders($startPath, $findEmptyFolders = array('')) {
+        $result = array();
+    
+        $handle = @opendir($startPath);
+        if (!$handle) {
+            return $result;
+        }
+        
+        while ($file = readdir($handle)) {
+            if ($file == '.' || $file == '..' || !is_dir($startPath . '/' . $file)) {
+                continue;
+            }
+            if (count(scandir($startPath . '/' . $file)) == 2) {
+                $result[] = $startPath . '/' . $file;
+            } else {
+                $tmpResults = self::getEmptyFolders($startPath . '/' . $file, $findEmptyFolders);
+                foreach($tmpResults as $tmpResult) {
+                    $result[] = $tmpResult;
                 }
             }
         }
