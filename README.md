@@ -78,8 +78,8 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 
 |                | PHP release date | Neard release | Download |
 | -------------- |:----------------:|:-------------:|:--------:|
-| **PHP 7.0.0**  | 2015/12/03 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-7.0.0-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r3/neard-php-7.0.0-r4.zip) |
-| **PHP 7.0.2**  | 2016/01/06 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-7.0.2-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r3/neard-php-7.0.2-r4.zip) |
+| **PHP 7.0.0**  | 2015/12/03 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-7.0.0-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-7.0.0-r4.zip) |
+| **PHP 7.0.2**  | 2016/01/06 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-7.0.2-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-7.0.2-r4.zip) |
 
 ## Compatibility table
 
