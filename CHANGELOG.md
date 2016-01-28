@@ -7,7 +7,7 @@ This release works since **[Neard 1.0.16](https://github.com/crazy-max/neard/rel
 * New bundles : 5.5.31, 5.6.17, 7.0.2
 * Bug in php.ini for 5.2.17
 * Disable APC / OPCache by default
-* Missing dlls for 
+* Missing dlls for 5.6.16
 * pear-install update
 
 ## r3 (2015/12/13)
