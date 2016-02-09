@@ -62,7 +62,8 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 | **PHP 5.5.16** | 2014/08/21 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.5.16-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.5.16-r4.zip) |
 | **PHP 5.5.24** | 2015/04/16 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.5.24-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.5.24-r4.zip) |
 | **PHP 5.5.30** | 2015/10/01 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.5.30-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.5.30-r4.zip) |
-| **PHP 5.5.31** | 2016/01/06 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.5.31-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.5.31-r4.zip) |
+| **PHP 5.5.31** | 2016/01/06 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.5.31-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.5.31-r5.zip) |
+| **PHP 5.5.32** | 2016/02/04 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.5.32-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.5.32-r5.zip) |
 
 ### 5.6
 
@@ -72,14 +73,16 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 | **PHP 5.6.8**  | 2015/04/16 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.6.8-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.6.8-r4.zip) |
 | **PHP 5.6.14** | 2015/10/01 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.6.14-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.6.14-r4.zip) |
 | **PHP 5.6.16** | 2015/11/26 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.6.16-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.6.16-r4.zip) |
-| **PHP 5.6.17** | 2016/01/06 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.6.17-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.6.17-r4.zip) |
+| **PHP 5.6.17** | 2016/01/06 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.6.17-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.6.17-r5.zip) |
+| **PHP 5.6.18** | 2016/02/04 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.6.18-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.6.18-r5.zip) |
 
 ### 7.0
 
 |                | PHP release date | Neard release | Download |
 | -------------- |:----------------:|:-------------:|:--------:|
 | **PHP 7.0.0**  | 2015/12/03 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-7.0.0-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-7.0.0-r4.zip) |
-| **PHP 7.0.2**  | 2016/01/06 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-7.0.2-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-7.0.2-r4.zip) |
+| **PHP 7.0.2**  | 2016/01/06 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-7.0.2-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-7.0.2-r5.zip) |
+| **PHP 7.0.3**  | 2016/02/04 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-7.0.3-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-7.0.3-r5.zip) |
 
 ## Compatibility table
 

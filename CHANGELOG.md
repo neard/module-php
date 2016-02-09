@@ -1,5 +1,13 @@
 # Changelog
 
+## r5 (2016/02/09)
+
+This release works since **[Neard 1.0.16](https://github.com/crazy-max/neard/releases/tag/v1.0.16)**
+
+* New bundles : 5.5.32, 5.6.18, 7.0.3
+* Bug in neard.conf for 5.6.17 and 7.0.2 ([Issue #110](https://github.com/crazy-max/neard/issues/110))
+* Missing Xdebug dll in PHP 5.5.31 bundle ([Issue #111](https://github.com/crazy-max/neard/issues/111))
+
 ## r4 (2016/01/28)
 
 This release works since **[Neard 1.0.16](https://github.com/crazy-max/neard/releases/tag/v1.0.16)**
