@@ -1,5 +1,12 @@
 # Changelog
 
+## r6 (2017/04/18)
+
+This release works since **[Neard 1.0.16](https://github.com/crazy-max/neard/releases/tag/v1.0.16)**
+
+* New bundles : 5.5.34, 5.6.20, 7.0.5
+* Imagick unecessary for 5.2.17
+
 ## r5 (2016/02/09)
 
 This release works since **[Neard 1.0.16](https://github.com/crazy-max/neard/releases/tag/v1.0.16)**

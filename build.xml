@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="neard-bin-php" basedir=".">
+    
+    <dirname property="project.basedir" file="${ant.file.neard-bin-php}" />
+    <property name="root.dir" location="${project.basedir}/.." />
+    <property name="build.properties" value="${project.basedir}/build.properties" />
+    <property file="${build.properties}" />
+    
+    <!-- Neard dev -->
+    <property name="neard-dev.path" location="${root.dir}/neard-dev" />
+    <fail unless="neard-dev.path" message="Project 'neard-dev' not found in ${neard-dev.path}" />
+    <echo message="Neard dev found in ${neard-dev.path}" level="debug" /> 
+    
+    <!-- Import build-commons.xml -->
+    <import file="${neard-dev.path}/build/build-commons.xml" />
+    <!-- Import build-bundle.xml -->
+    <import file="${neard-dev.path}/build/build-bundle.xml" />
+    
+</project>
