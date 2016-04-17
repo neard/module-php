@@ -5,8 +5,9 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 * Download and install [Neard](https://github.com/crazy-max/neard).
 * If you already have installed Neard, stop it.
 * Download [a PHP bundle](#download).
-* Extract archive in `neard\bin\php\`. Directory structure example :
+* Use a file archiver that supports [7z format](http://www.7-zip.org/7z.html) like [7zip](http://www.7-zip.org/) and extract the archive in `neard\bin\php\`.
 
+Directory structure example :
 ```
 [-] neard
  | [-] bin
@@ -32,7 +33,7 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 
 |                | PHP release date | Neard release | Download |
 | -------------- |:----------------:|:-------------:|:--------:|
-| **PHP 5.2.17** | 2011/01/06 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.2.17-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.2.17-r4.zip) |
+| **PHP 5.2.17** | 2011/01/06 | [r6](https://github.com/crazy-max/neard-bin-php/releases/tag/r6) | [neard-php-5.2.17-r6.7z](https://github.com/crazy-max/neard-bin-php/releases/download/r6/neard-php-5.2.17-r6.7z) |
 
 ### 5.3
 
@@ -64,6 +65,7 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 | **PHP 5.5.30** | 2015/10/01 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.5.30-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.5.30-r4.zip) |
 | **PHP 5.5.31** | 2016/01/06 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.5.31-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.5.31-r5.zip) |
 | **PHP 5.5.32** | 2016/02/04 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.5.32-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.5.32-r5.zip) |
+| **PHP 5.5.34** | 2016/03/30 | [r6](https://github.com/crazy-max/neard-bin-php/releases/tag/r6) | [neard-php-5.5.34-r6.7z](https://github.com/crazy-max/neard-bin-php/releases/download/r6/neard-php-5.5.34-r6.7z) |
 
 ### 5.6
 
@@ -75,6 +77,7 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 | **PHP 5.6.16** | 2015/11/26 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-5.6.16-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-5.6.16-r4.zip) |
 | **PHP 5.6.17** | 2016/01/06 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.6.17-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.6.17-r5.zip) |
 | **PHP 5.6.18** | 2016/02/04 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-5.6.18-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-5.6.18-r5.zip) |
+| **PHP 5.6.20** | 2016/04/01 | [r6](https://github.com/crazy-max/neard-bin-php/releases/tag/r6) | [neard-php-5.6.20-r6.7z](https://github.com/crazy-max/neard-bin-php/releases/download/r6/neard-php-5.6.20-r6.7z) |
 
 ### 7.0
 
@@ -83,6 +86,7 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 | **PHP 7.0.0**  | 2015/12/03 | [r4](https://github.com/crazy-max/neard-bin-php/releases/tag/r4) | [neard-php-7.0.0-r4.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r4/neard-php-7.0.0-r4.zip) |
 | **PHP 7.0.2**  | 2016/01/06 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-7.0.2-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-7.0.2-r5.zip) |
 | **PHP 7.0.3**  | 2016/02/04 | [r5](https://github.com/crazy-max/neard-bin-php/releases/tag/r5) | [neard-php-7.0.3-r5.zip](https://github.com/crazy-max/neard-bin-php/releases/download/r5/neard-php-7.0.3-r5.zip) |
+| **PHP 7.0.5**  | 2016/03/30 | [r6](https://github.com/crazy-max/neard-bin-php/releases/tag/r6) | [neard-php-7.0.5-r6.7z](https://github.com/crazy-max/neard-bin-php/releases/download/r6/neard-php-7.0.5-r6.7z) |
 
 ## Compatibility table
 
@@ -94,6 +98,30 @@ This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving
 | **PHP 5.5.x** | ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/ko-20151214.png) | ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/ok-20151214.png) |
 | **PHP 5.6.x** | ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/ko-20151214.png) | ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/ok-20151214.png) |
 | **PHP 7.0.x** | ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/ko-20151214.png) | ![](https://raw.github.com/crazy-max/neard-bin-php/master/img/ok-20151214.png) |
+
+## Sources
+
+* http://windows.php.net/
+
+## Contribute
+
+If you want to contribute to this bundle and create new bundles, you have to download [neard-dev](https://github.com/crazy-max/neard-dev) in the parent folder of the bundle.
+Directory structure example :
+
+```
+[-] neard-dev
+ | [-] build
+ |  |  | build-commons.xml 
+[-] neard-bin-php
+ |  | build.xml
+```
+
+To create a new bundle :
+* Do not forget to increment the `build.release` in the `build.properties` file.
+* If you want you can change the `build.path` (default `C:\neard-build`).
+* Open a command prompt in your bundle folder and call the Ant target `release` : `ant release`.
+* Upload your release on a file hosting system like [Sendspace](https://www.sendspace.com/).
+* Create an [issue on Neard repository](https://github.com/crazy-max/neard/issues) to integrate your release.
 
 ## Issues
 
