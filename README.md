@@ -1,6 +1,6 @@
 This a sub-repo of [Neard project](https://github.com/crazy-max/neard) involving PHP binary bundles.
 
-## Download and installation
+## Documentation and downloads
 
 See [PHP Wiki page on Neard](https://github.com/crazy-max/neard/wiki/binPHP).
 
