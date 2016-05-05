@@ -2,7 +2,12 @@
 
 ### [Check compatibility with Neard](https://github.com/crazy-max/neard/wiki/binPHP#latest) before downloading.
 
-## r6 (2017/04/18)
+## r7 (2016/05/05)
+
+* New bundles : 5.5.35, 5.6.21, 7.0.6
+* Bug with APC extension on PHP 5.3 and 5.4
+
+## r6 (2016/04/18)
 
 * New bundles : 5.5.34, 5.6.20, 7.0.5
 * Imagick unecessary for 5.2.17
