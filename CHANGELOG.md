@@ -2,6 +2,11 @@
 
 ### [Check compatibility with Neard](https://github.com/crazy-max/neard/wiki/binPHP#latest) before downloading.
 
+## r8 (2016/06/20)
+
+* New bundles : 5.5.36, 5.6.22, 7.0.7
+* Forgot .nrd file in 7.0.6
+
 ## r7 (2016/05/05)
 
 * New bundles : 5.5.35, 5.6.21, 7.0.6
