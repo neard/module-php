@@ -681,6 +681,7 @@ extension=php_mbstring.dll
 ;extension=php_exif.dll
 ;extension=php_mcrypt.dll
 ;extension=php_mhash.dll
+extension=php_memcache.dll
 ;extension=php_mime_magic.dll
 ;extension=php_ming.dll
 ;extension=php_msql.dll

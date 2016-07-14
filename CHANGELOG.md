@@ -2,6 +2,11 @@
 
 ### [Check compatibility with Neard](https://github.com/crazy-max/neard/wiki/binPHP#latest) before downloading.
 
+## r9 (2016/07/14)
+
+* New bundles : 5.5.37, 5.6.23, 7.0.8
+* Add Memcache extension
+
 ## r8 (2016/06/20)
 
 * New bundles : 5.5.36, 5.6.22, 7.0.7
