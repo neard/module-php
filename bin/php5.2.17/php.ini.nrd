@@ -302,7 +302,7 @@ expose_php = On
 ;;;;;;;;;;;;;;;;;;;
 
 max_execution_time = 30     ; Maximum execution time of each script, in seconds
-max_input_time = 60	; Maximum amount of time each script may spend parsing request data
+max_input_time = 60 ; Maximum amount of time each script may spend parsing request data
 ;max_input_nesting_level = 64 ; Maximum input variable nesting level
 memory_limit = 512M      ; Maximum amount of memory a script may consume (128MB)
 
@@ -697,9 +697,9 @@ extension=php_pdo_mysql.dll
 ;extension=php_pdo_oci.dll
 ;extension=php_pdo_oci8.dll
 ;extension=php_pdo_odbc.dll
-;extension=php_pdo_pgsql.dll
+extension=php_pdo_pgsql.dll
 extension=php_pdo_sqlite.dll
-;extension=php_pgsql.dll
+extension=php_pgsql.dll
 ;extension=php_pspell.dll
 ;extension=php_shmop.dll
 ;extension=php_snmp.dll

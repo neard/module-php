@@ -2,10 +2,11 @@
 
 ### [Check compatibility with Neard](https://github.com/crazy-max/neard/wiki/binPHP#latest) before downloading.
 
-## r9 (2016/07/14)
+## r9 (2016/10/06)
 
-* New bundles : 5.5.37, 5.6.23, 7.0.8
+* New bundles : 5.5.37, 5.5.38, 5.6.23, 5.6.26, 7.0.8, 7.0.11
 * Add Memcache extension
+* Enable php_pdo_pgsql and php_pgsql extensions (required by PostgreSQL)
 
 ## r8 (2016/06/20)
 
