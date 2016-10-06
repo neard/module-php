@@ -2,12 +2,11 @@
 <project name="neard-bin-php" basedir=".">
     
     <dirname property="project.basedir" file="${ant.file.neard-bin-php}" />
-    <property name="root.dir" location="${project.basedir}/.." />
     <property name="build.properties" value="${project.basedir}/build.properties" />
     <property file="${build.properties}" />
     
     <!-- Neard dev -->
-    <property name="neard-dev.path" location="${root.dir}/neard-dev" />
+    <property name="neard-dev.path" location="${project.basedir}/neard-dev" />
     <fail unless="neard-dev.path" message="Project 'neard-dev' not found in ${neard-dev.path}" />
     <echo message="Neard dev found in ${neard-dev.path}" level="debug" /> 
     
