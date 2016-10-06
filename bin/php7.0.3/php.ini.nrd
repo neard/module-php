@@ -890,9 +890,9 @@ extension=php_openssl.dll
 extension=php_pdo_mysql.dll
 ;extension=php_pdo_oci.dll
 ;extension=php_pdo_odbc.dll
-;extension=php_pdo_pgsql.dll
+extension=php_pdo_pgsql.dll
 extension=php_pdo_sqlite.dll
-;extension=php_pgsql.dll
+extension=php_pgsql.dll
 ;extension=php_shmop.dll
 ;extension=php_snmp.dll
 ;extension=php_soap.dll
@@ -1405,7 +1405,7 @@ session.referer_check =
 
 ; How many bytes to read from the file.
 ; http://php.net/session.entropy-length
-session.entropy_length = 0
+;session.entropy_length = 32
 
 ; Specified here to create the session id.
 ; http://php.net/session.entropy-file
