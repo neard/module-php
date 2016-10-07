@@ -1,4 +1,0 @@
-[submodule "neard-dev"]
-	path = neard-dev
-	url = https://github.com/crazy-max/neard-dev.git
-	branch = master
