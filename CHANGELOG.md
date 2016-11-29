@@ -2,6 +2,11 @@
 
 ### [Check compatibility with Neard](https://github.com/crazy-max/neard/wiki/binPHP#latest) before downloading.
 
+## r10 (2016/11/29)
+
+* New bundles : 5.6.28, 7.0.13
+* Misconfiguration on PHP 7.0.11
+
 ## r9 (2016/10/06)
 
 * New bundles : 5.5.37, 5.5.38, 5.6.23, 5.6.26, 7.0.8, 7.0.11
