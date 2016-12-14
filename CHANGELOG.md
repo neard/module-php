@@ -2,6 +2,12 @@
 
 ### [Check compatibility with Neard](https://github.com/crazy-max/neard/wiki/binPHP#latest) before downloading.
 
+## r11 (2016/12/15)
+
+* New bundle : 7.1.0 ([Issue #178](https://github.com/crazy-max/neard/issues/178))
+* Move custom PHP extensions to a distinct folder ([Issue #188](https://github.com/crazy-max/neard/issues/188))
+* Upgrade Imagick extension ([Issue #187](https://github.com/crazy-max/neard/issues/187))
+
 ## r10 (2016/11/29)
 
 * New bundles : 5.6.28, 7.0.13
