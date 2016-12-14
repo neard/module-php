@@ -40,7 +40,7 @@
             <param name="bundle.version" value="${bundle.version}" />
         </antcall>
         
-        <!--echo message="Insert release version in ${build.tmp.path}/${bundle.name}${bundle.version}/neard.conf..." />
+        <echo message="Insert release version in ${build.tmp.path}/${bundle.name}${bundle.version}/neard.conf..." />
         <copy file="${bundle.path}/neard.conf" tofile="${build.tmp.path}/${bundle.name}${bundle.version}/neard.conf" overwrite="true" verbose="true">
             <filterset>
                 <filter token="RELEASE_VERSION" value="${bundle.release}" />
@@ -60,7 +60,7 @@
                 <echo message="Compressing ${bundle.name}${bundle.version} to ${bundle.dest}.zip..." />
                 <sevenzip src="${build.tmp.path}/${bundle.name}${bundle.version}" dest="${bundle.dest}.zip" format="zip" />
             </else>
-        </if-->
+        </if>
     </target>
     
     <target name="build.php.extensions">
