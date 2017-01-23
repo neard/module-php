@@ -1,16 +1,14 @@
 # Changelog
 
-### [Check compatibility with Neard](https://github.com/crazy-max/neard/wiki/binPHP#latest) before downloading.
-
 ## r12 (2017/01/10)
 
-* New bundles : 5.6.29, 7.0.14 ([Issue #203](https://github.com/crazy-max/neard/issues/203))
+* New bundles : 5.6.29, 7.0.14 (Issue #203)
 
 ## r11 (2016/12/15)
 
-* New bundle : 7.1.0 ([Issue #178](https://github.com/crazy-max/neard/issues/178))
-* Move custom PHP extensions to a distinct folder ([Issue #188](https://github.com/crazy-max/neard/issues/188))
-* Upgrade Imagick extension ([Issue #187](https://github.com/crazy-max/neard/issues/187))
+* New bundle : 7.1.0 (Issue #178)
+* Move custom PHP extensions to a distinct folder (Issue #188)
+* Upgrade Imagick extension (Issue #187)
 
 ## r10 (2016/11/29)
 
@@ -41,8 +39,8 @@
 ## r5 (2016/02/09)
 
 * New bundles : 5.5.32, 5.6.18, 7.0.3
-* Bug in neard.conf for 5.6.17 and 7.0.2 ([Issue #110](https://github.com/crazy-max/neard/issues/110))
-* Missing Xdebug dll in PHP 5.5.31 bundle ([Issue #111](https://github.com/crazy-max/neard/issues/111))
+* Bug in neard.conf for 5.6.17 and 7.0.2 (Issue #110)
+* Missing Xdebug dll in PHP 5.5.31 bundle (Issue #111)
 
 ## r4 (2016/01/28)
 
@@ -61,9 +59,9 @@
 * New bundle : 5.4.45, 5.5.30, 5.6.16
 * Adding pear-install batch and default go-pear.phar
 * Completely review PEAR integration
-* PEAR does not work on PHP 5.2.17 ([Issue #102](https://github.com/crazy-max/neard/issues/102))
+* PEAR does not work on PHP 5.2.17 (Issue #102)
 
 ## r1 (2015/12/07)
 
-* Init repo with PHP bundles from [Neard](https://github.com/crazy-max/neard)
+* Init repo with PHP bundles from Neard
 * Create template files (.nrd) for future Neard release
