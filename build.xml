@@ -1,111 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="neard-bin-php" basedir=".">
+  
+  <dirname property="project.basedir" file="${ant.file.neard-bin-php}"/>
+  <property name="root.dir" location="${project.basedir}/.."/>
+  <property name="build.properties" value="${project.basedir}/build.properties"/>
+  <property file="${build.properties}"/>
+  
+  <!-- Neard dev -->
+  <property name="neard-dev.path" location="${root.dir}/neard-dev"/>
+  <fail unless="neard-dev.path" message="Project 'neard-dev' not found in ${neard-dev.path}"/>
+  <echo message="Neard dev found in ${neard-dev.path}" level="debug"/> 
+  
+  <!-- Import build-commons.xml -->
+  <import file="${neard-dev.path}/build/build-commons.xml"/>
+  <!-- Import build-bundle.xml -->
+  <import file="${neard-dev.path}/build/build-bundle.xml"/>
+  
+  <property name="php-ext.path" location="${project.basedir}/ext"/>
+  <property name="pear-install.path" location="${project.basedir}/pear"/>
+  
+  <target name="release.build">
+    <basename property="bundle.folder" file="${bundle.path}"/>
+    <replaceproperty src="bundle.folder" dest="bundle.version" replace="${bundle.name}" with=""/>
     
-    <dirname property="project.basedir" file="${ant.file.neard-bin-php}" />
-    <property name="root.dir" location="${project.basedir}/.." />
-    <property name="build.properties" value="${project.basedir}/build.properties" />
-    <property file="${build.properties}" />
+    <getbundlesrc name="${bundle.name}" version="${bundle.version}" propSrcDest="bundle.srcdest" propSrcFilename="bundle.srcfilename"/>
+    <assertfile file="${bundle.srcdest}/php.exe"/>
     
-    <!-- Neard dev -->
-    <property name="neard-dev.path" location="${root.dir}/neard-dev" />
-    <fail unless="neard-dev.path" message="Project 'neard-dev' not found in ${neard-dev.path}" />
-    <echo message="Neard dev found in ${neard-dev.path}" level="debug" /> 
+    <delete dir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}"/>
+    <mkdir dir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}"/>
+    <copy todir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}">
+      <fileset dir="${bundle.srcdest}" defaultexcludes="yes" excludes="
+        dev/**,
+        extras/**,
+        PEAR/**,
+        *.reg,
+        install.txt,
+        go-pear.bat,
+        news.txt,
+        php.gif,
+        php.ini*,
+        snapshot.txt"
+      />
+      <fileset dir="${bundle.path}" defaultexcludes="yes"/>
+    </copy>
     
-    <!-- Import build-commons.xml -->
-    <import file="${neard-dev.path}/build/build-commons.xml" />
-    <!-- Import build-bundle.xml -->
-    <import file="${neard-dev.path}/build/build-bundle.xml" />
+    <!-- Install PEAR -->
+    <antcall target="build.php.pear" inheritRefs="true">
+      <param name="bundle.version" value="${bundle.version}"/>
+    </antcall>
     
-    <target name="build.version" depends="load.lib">
-        <var name="bundle.folder" unset="true" />
-        <var name="bundle.version" unset="true" />
-        <var name="bundle.dest" unset="true" />
-        <basename property="bundle.folder" file="${bundle.path}" />
-        <replaceproperty src="bundle.folder" dest="bundle.version" replace="${bundle.name}" with="" />
-        <property name="bundle.dest" value="${build.bundle.path}/${bundle.name}/neard-${bundle.name}-${bundle.version}-${bundle.release}" />
-        
-        <echo message="*** Release bundle " />
-        <echo message="* Name       : ${bundle.name}" />
-        <echo message="* Version    : ${bundle.version}" />
-        <echo message="* Release    : ${bundle.release}" />
-        <echo message="* Type       : ${bundle.type}" />
-        <echo message="* Format     : ${bundle.format}" />
-        
-        <delete dir="${build.tmp.path}/${bundle.name}${bundle.version}" />
-        <copy todir="${build.tmp.path}/${bundle.name}${bundle.version}">
-            <fileset dir="${bundle.path}" defaultexcludes="yes" />
+    <!-- Copy extensions -->
+    <antcall target="build.php.extensions" inheritRefs="true">
+      <param name="bundle.version" value="${bundle.version}"/>
+    </antcall>
+  </target>
+  
+  <target name="build.php.pear">
+    <property name="php.bundle.tmp.path" location="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}"/>
+    
+    <delete dir="${php.bundle.tmp.path}/pear-install"/>
+    <copy todir="${php.bundle.tmp.path}/pear-install">
+      <fileset dir="${pear-install.path}" defaultexcludes="yes"/>
+    </copy>
+    <assertfile file="${php.bundle.tmp.path}/pear-install/pear-install.bat"/>
+    
+    <propertyregex override="true" property="php.pear.phpversion" input="${bundle.version}" regexp="(.*)\.(.*)\.(.*)" select="\1.\2"/>
+    <property file="${php.bundle.tmp.path}/pear-install/pear-install.properties"/>
+    <propertycopy name="phar.file" from="${php.pear.phpversion}" />
+    <move file="${php.bundle.tmp.path}/pear-install/${phar.file}"
+      tofile="${php.bundle.tmp.path}/pear-install/install-pear-nozlib.phar" overwrite="true"/>
+    
+    <echo message="Processing ${phar.file}..."/>
+    <exec executable="${php.bundle.tmp.path}/pear-install/pear-install.bat"
+      dir="${php.bundle.tmp.path}/pear-install"
+      failonerror="true"/>
+    
+    <delete dir="${php.bundle.tmp.path}/pear-install"/>
+  </target>
+  
+  <target name="build.php.extensions">
+    <delete file="${build.tmp.path}/php_extensions.tmp"/>
+    <touch file="${build.tmp.path}/php_extensions.tmp"/>
+    <foreach target="build.php.extension" param="php.ext.path">
+        <path><dirset dir="${project.basedir}/ext" includes="*"/></path>
+    </foreach>
+    <loadfile property="php.extensions" srcFile="${build.tmp.path}/php_extensions.tmp"/>
+    
+    <echo message="${line.separator}PHP extensions to inject in php.ini :${line.separator}${php.extensions}"/>
+    <copy todir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}" overwrite="true">
+      <filterset>
+        <filter token="PHP_EXTENSIONS" value="${php.extensions}"/>
+      </filterset>
+      <resources>
+        <file file="${bundle.path}/php.ini"/>
+        <file file="${bundle.path}/php.ini.nrd"/>
+      </resources>
+    </copy>
+  </target>
+  
+  <target name="build.php.extension">
+    <var name="php.ext.name" unset="true"/>
+    <var name="php.ext.version" unset="true"/>
+    <basename property="php.ext.name" file="${php.ext.path}"/>
+    <propertyregex override="true" property="php.ext.phpversion" input="${bundle.version}" regexp="(.*)\.(.*)\.(.*)" select="\1.\2"/>
+    <if>
+      <available file="${php.ext.path}/php${php.ext.phpversion}/${php.ext.name}.properties" type="file"/>
+      <then>
+        <property file="${php.ext.path}/php${php.ext.phpversion}/${php.ext.name}.properties"/>
+        <echo message="Build ${php.ext.name} ${ext.version} extension..."/>
+        <copy todir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}" overwrite="true">
+          <fileset dir="${php.ext.path}/php${php.ext.phpversion}" defaultexcludes="yes" excludes="${php.ext.name}.properties"/>
         </copy>
-        
-        <antcall target="build.php.extensions" inheritRefs="true">
-            <param name="bundle.version" value="${bundle.version}" />
-        </antcall>
-        
-        <echo message="Insert release version in ${build.tmp.path}/${bundle.name}${bundle.version}/neard.conf..." />
-        <copy file="${bundle.path}/neard.conf" tofile="${build.tmp.path}/${bundle.name}${bundle.version}/neard.conf" overwrite="true" verbose="true">
-            <filterset>
-                <filter token="RELEASE_VERSION" value="${bundle.release}" />
-            </filterset>
-        </copy>
-        
-        <mkdir dir="${build.bundle.path}/${bundle.name}" />
         <if>
-            <equals arg1="${bundle.format}" arg2="7z" />
-            <then>
-                <delete file="${bundle.dest}.7z" />
-                <echo message="Compressing ${bundle.name}${bundle.version} to ${bundle.dest}.7z..." />
-                <sevenzip src="${build.tmp.path}/${bundle.name}${bundle.version}" dest="${bundle.dest}.7z" format="7z" />
-            </then>
-            <else>
-                <delete file="${bundle.dest}.zip" />
-                <echo message="Compressing ${bundle.name}${bundle.version} to ${bundle.dest}.zip..." />
-                <sevenzip src="${build.tmp.path}/${bundle.name}${bundle.version}" dest="${bundle.dest}.zip" format="zip" />
-            </else>
+          <istrue value="${ext.inject}"/>
+          <then>
+            <echo message="extension=${ext.name}.dll${line.separator}" file="${build.tmp.path}/php_extensions.tmp" append="true"/>
+          </then>
         </if>
-    </target>
-    
-    <target name="build.php.extensions">
-        <delete file="${build.tmp.path}/php_extensions.tmp"/>
-        <touch file="${build.tmp.path}/php_extensions.tmp"/>
-        <foreach target="build.php.extension" param="php.ext.path">
-            <path><dirset dir="${project.basedir}/ext" includes="*" /></path>
-        </foreach>
-        <loadfile property="php.extensions" srcFile="${build.tmp.path}/php_extensions.tmp" />
-        
-        <echo message="${line.separator}PHP extensions to inject in php.ini :${line.separator}${php.extensions}" />
-        <copy todir="${build.tmp.path}/${bundle.name}${bundle.version}" overwrite="true" verbose="true">
-            <filterset>
-                <filter token="PHP_EXTENSIONS" value="${php.extensions}" />
-            </filterset>
-            <resources>
-                <file file="${bundle.path}/php.ini"/>
-                <file file="${bundle.path}/php.ini.nrd"/>
-            </resources>
-        </copy>
-    </target>
-    
-    <target name="build.php.extension">
-        <var name="php.ext.name" unset="true" />
-        <var name="php.ext.version" unset="true" />
-        <basename property="php.ext.name" file="${php.ext.path}" />
-        <propertyregex override="true" property="php.ext.phpversion" input="${bundle.version}" regexp="(.*)\.(.*)\.(.*)" select="\1.\2" />
-        <if>
-            <available file="${php.ext.path}/php${php.ext.phpversion}/${php.ext.name}.properties" type="file" />
-            <then>
-                <property file="${php.ext.path}/php${php.ext.phpversion}/${php.ext.name}.properties" />
-                <echo message="Build ${php.ext.name} ${ext.version} extension..." />
-                <copy todir="${build.tmp.path}/${bundle.name}${bundle.version}" overwrite="true">
-                    <fileset dir="${php.ext.path}/php${php.ext.phpversion}" defaultexcludes="yes" excludes="${php.ext.name}.properties" />
-                </copy>
-                <if>
-                    <istrue value="${ext.inject}"/>
-                    <then>
-                        <echo message="extension=${ext.name}.dll${line.separator}" file="${build.tmp.path}/php_extensions.tmp" append="true" />
-                    </then>
-                </if>
-            </then>
-            <else>
-                <echo message="No ${php.ext.name} extension available for PHP ${php.ext.phpversion}" level="warning" />
-            </else>
-        </if>
-    </target>
+      </then>
+      <else>
+        <echo message="No ${php.ext.name} extension available for PHP ${php.ext.phpversion}" level="warning"/>
+      </else>
+    </if>
+  </target>
 </project>
