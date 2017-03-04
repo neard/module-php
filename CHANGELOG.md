@@ -1,5 +1,10 @@
 # Changelog
 
+## r12 (2017/03/05)
+
+* New bundles : 5.6.30, 7.0.16, 7.1.2 (Issue crazy-max/neard#226)
+* Refactor modules build process (Issue crazy-max/neard#216)
+
 ## r12 (2017/01/10)
 
 * New bundles : 5.6.29, 7.0.14 (Issue #203)
