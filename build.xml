@@ -28,8 +28,8 @@
     
     <delete dir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}"/>
     <mkdir dir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}"/>
-    <copy todir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}">
-      <fileset dir="${bundle.srcdest}" defaultexcludes="yes" excludes="
+    <copy todir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}" overwrite="true">
+      <fileset dir="${bundle.srcdest}" excludes="
         dev/**,
         extras/**,
         PEAR/**,
@@ -41,6 +41,8 @@
         php.ini*,
         snapshot.txt"
       />
+    </copy>
+    <copy todir="${bundle.tmp.prep.path}/${bundle.name}${bundle.version}" overwrite="true">
       <fileset dir="${bundle.path}" defaultexcludes="yes"/>
     </copy>
     
