@@ -3,6 +3,7 @@
 ## r14 (2017/03/12)
 
 * Include MongoDB extension (Issue crazy-max/neard#166)
+* Add vld extension to PHP 7.0 and 7.1
 
 ## r13 (2017/03/05)
 
