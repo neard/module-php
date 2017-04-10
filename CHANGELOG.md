@@ -1,5 +1,9 @@
 # Changelog
 
+## r15 (2017/04/10)
+
+* New bundles : 7.0.17, 7.1.3 (Issue crazy-max/neard#244)
+
 ## r14 (2017/03/12)
 
 * Include MongoDB extension (Issue crazy-max/neard#166)
