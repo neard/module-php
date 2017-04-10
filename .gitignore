@@ -5,5 +5,8 @@
 /.jsdtscope
 /*.launch
 
+# Jetbrains
+/*.iml
+
 # Neard
 /.dev
