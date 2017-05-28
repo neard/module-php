@@ -1,5 +1,9 @@
 # Changelog
 
+## r17 (2017/05/28)
+
+* New bundles : 7.0.19, 7.1.5 (Issue crazy-max/neard#262)
+
 ## r16 (2017/04/19)
 
 * Bug with apc extension on PHP 5.3 and 5.4 (Issue crazy-max/neard#250)
