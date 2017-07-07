@@ -1,5 +1,11 @@
 # Changelog
 
+## r18 (2017/07/07)
+
+* New bundles : 7.0.21, 7.1.7 (Issue crazy-max/neard#280)
+* Update Imagick extension to 3.4.3
+* Update Xdebug extension to 2.5.5
+
 ## r17 (2017/05/28)
 
 * New bundles : 7.0.19, 7.1.5 (Issue crazy-max/neard#262)
