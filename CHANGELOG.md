@@ -1,5 +1,9 @@
 # Changelog
 
+## r19 (2017/08/28)
+
+* New bundles : 5.6.31, 7.0.22, 7.1.8 (Issue crazy-max/neard#310)
+
 ## r18 (2017/07/07)
 
 * New bundles : 7.0.21, 7.1.7 (Issue crazy-max/neard#280)
