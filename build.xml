@@ -149,6 +149,17 @@
         
         <delete file="${php.prep.path}/exts.properties"/>
       </then>
+      <else>
+        <copy todir="${php.prep.path}" overwrite="true">
+          <filterset>
+            <filter token="PHP_EXTENSIONS" value=""/>
+          </filterset>
+          <resources>
+            <file file="${bundle.path}/php.ini"/>
+            <file file="${bundle.path}/php.ini.nrd"/>
+          </resources>
+        </copy>
+      </else>
     </if>
   </target>
 </project>
