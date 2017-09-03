@@ -161,5 +161,39 @@
         </copy>
       </else>
     </if>
+    
+    <!-- Dependencies -->
+    <if>
+      <available file="${php.prep.path}/deps.properties" type="file"/>
+      <then>
+        <echo message="Processing dependencies..."/>
+        <property prefix="phpdeps" file="${php.prep.path}/deps.properties"/>
+        <propertyselector property="phpdeps" match="phpdeps\.(.*)" select="\1"/>
+        <for list="${phpdeps}" param="phpdep">
+          <sequential>
+            <var name="phpdep.dest" unset="true"/>
+              
+            <!-- Download dep -->
+            <download url="${phpdeps.@{phpdep}}" returnProperty="phpdep.dest"/>
+            <echo message="Dependency path: ${phpdep.dest}"/>
+              
+            <!-- Copy dep -->
+            <echo message="Copy @{phpdep} dependency..."/>
+            <if>
+              <equals arg1="@{phpdep}" arg2="imagemagick"/>
+              <then>
+                <copy todir="${php.prep.path}/imagick" overwrite="true">
+                  <fileset dir="${phpdep.dest}/bin" includes="
+                    *.exe,
+                    *.dll"
+                  />
+                </copy>
+              </then>
+            </if>
+          </sequential>
+        </for>
+        <delete file="${php.prep.path}/deps.properties"/>
+      </then>
+    </if>
   </target>
 </project>
