@@ -1,5 +1,11 @@
 # Changelog
 
+## r21 (2017/09/03)
+
+* Add a deps folder to load additional dependencies for PHP (Issue crazy-max/neard#321)
+* New releases : 7.0.23, 7.1.9 (Issue crazy-max/neard#320)
+* Imagick ext does not load ImageMagick supported formats (Issue crazy-max/neard#318)
+
 ## r20 (2017/08/30)
 
 * New release : 7.2.0RC1 (Issues crazy-max/neard#311 crazy-max/neard#312)
