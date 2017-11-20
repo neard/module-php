@@ -1,5 +1,9 @@
 # Changelog
 
+## r22 (2017/11/20)
+
+* New releases : 5.6.32, 7.0.25, 7.1.11, 7.2.0RC6 (Issue crazy-max/neard#337)
+
 ## r21 (2017/09/03)
 
 * Add a deps folder to load additional dependencies for PHP (Issue crazy-max/neard#321)
