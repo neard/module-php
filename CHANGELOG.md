@@ -1,5 +1,9 @@
 # Changelog
 
+## r23 (2017/12/10)
+
+* New releases : 7.0.26, 7.1.12, 7.2.0 (Issue neard/neard#342)
+
 ## r22 (2017/11/20)
 
 * New releases : 5.6.32, 7.0.25, 7.1.11, 7.2.0RC6 (Issue neard/neard#337)
