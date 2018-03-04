@@ -3,7 +3,7 @@
 ## r24 (2018/03/04)
 
 * New releases : 5.6.34, 7.0.28, 7.1.15, 7.2.3 (Issue neard/neard#364)
-* Add Imagick 3.4.2, Memcache 3.0.9-dev, MongoDB 1.4.1, VLD 0.14.0, Xdebug 2.6.0 extensions for PHP 7.2
+* Add Imagick 3.4.3, Memcache 3.0.9-dev, MongoDB 1.4.1, VLD 0.14.0, Xdebug 2.6.0 extensions for PHP 7.2
 * Update Xdebug extension to 2.6.0 for PHP 7.0, 7.1
 * Update Xdebug extension to 2.5.5 for PHP 5.6
 
