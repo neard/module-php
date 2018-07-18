@@ -1,5 +1,9 @@
 # Changelog
 
+## r25 (2018/07/18)
+
+* New releases : 5.6.36, 7.0.30, 7.1.19, 7.2.8 (Issue neard/neard#379)
+
 ## r24 (2018/03/04)
 
 * New releases : 5.6.34, 7.0.28, 7.1.15, 7.2.3 (Issue neard/neard#364)
