@@ -1,5 +1,10 @@
 # Changelog
 
+## r26 (2018/12/15)
+
+* New releases : 5.6.39, 7.0.33, 7.1.25, 7.2.13, 7.3.0 (Issue neard/neard#396)
+* Add SSH2 1.1.2 extensions for PHP 7.2
+
 ## r25 (2018/07/18)
 
 * New releases : 5.6.36, 7.0.30, 7.1.19, 7.2.8 (Issue neard/neard#379)
