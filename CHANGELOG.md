@@ -1,5 +1,9 @@
 # Changelog
 
+## r27 (2019/02/05)
+
+* Xdebug extension cannot be loaded on PHP 7.3.0 (Issue neard/neard#404)
+
 ## r26 (2018/12/15)
 
 * New releases : 5.6.39, 7.0.33, 7.1.25, 7.2.13, 7.3.0 (Issue neard/neard#396)
