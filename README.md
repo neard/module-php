@@ -5,7 +5,7 @@ This is a module of [Neard project](https://github.com/neard/neard) involving PH
 
 ## Documentation and downloads
 
-http://neard.io/modules/php
+https://neard.io/modules/php
 
 ## Issues
 
