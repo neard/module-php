@@ -3,6 +3,7 @@
 ## r29 (2019/11/28)
 
 * PHP 7.1.33, 7.2.25, 7.3.12, 7.4.0 (Issue neard/neard#430)
+* Add SSH2 1.2 extensions for PHP 7.3
 
 ## r28 (2019/05/23)
 
