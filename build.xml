@@ -135,11 +135,19 @@
         </for>
         
         <!-- Inject in php.ini -->
-        <loadfile property="php.extensions" srcFile="${build.tmp.path}/php_extensions.tmp"/>
+        <if>
+          <length file="${build.tmp.path}/php_extensions.tmp" when="equal" length="0" />
+          <then>
+            <property name="php.extensions" value=""/>
+          </then>
+          <else>
+            <loadfile property="php.extensions" srcFile="${build.tmp.path}/php_extensions.tmp"/>
+          </else>
+        </if>
         <echo message="${line.separator}PHP extensions to inject in php.ini :${line.separator}${php.extensions}"/>
         <copy todir="${php.prep.path}" overwrite="true">
           <filterset>
-            <filter token="PHP_EXTENSIONS" value="${php.extensions}"/>
+           <filter token="PHP_EXTENSIONS" value="${php.extensions}"/>
           </filterset>
           <resources>
             <file file="${bundle.path}/php.ini"/>
