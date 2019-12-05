@@ -1,5 +1,9 @@
 # Changelog
 
+## r30 (2019/12/05)
+
+* Add memcache extension for PHP 7.4
+
 ## r29 (2019/11/28)
 
 * PHP 7.1.33, 7.2.25, 7.3.12, 7.4.0 (Issue neard/neard#430)
