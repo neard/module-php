@@ -1,8 +1,12 @@
 # Changelog
 
+## r31 (2019/12/05)
+
+* Add imagick, mongodb and ssh2 extension for PHP 7.4 (Issue neard/neard#433)
+
 ## r30 (2019/12/05)
 
-* Add memcache extension for PHP 7.4
+* Add memcache extension for PHP 7.4 (Issue neard/neard#432)
 
 ## r29 (2019/11/28)
 
