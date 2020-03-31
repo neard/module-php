@@ -1,5 +1,9 @@
 # Changelog
 
+## r32 (2020/03/31)
+
+* PHP 7.2.29, 7.3.16, 7.4.4 (neard/neard#440)
+
 ## r31 (2019/12/05)
 
 * Add imagick, mongodb and ssh2 extension for PHP 7.4 (neard/neard#433)
